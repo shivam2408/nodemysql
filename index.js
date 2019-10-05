@@ -28,7 +28,7 @@ console.log('Disconnected: %s sockets connected', connections.length);
 
 
 
-
+// date fetching method
 
 var db = mysql.createConnection({
     host     : 'localhost',
