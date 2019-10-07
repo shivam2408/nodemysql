@@ -1,12 +1,28 @@
-var http = require('http');
+'use strict';
+
 var express = require('express');
-var port = inde(process.env.PORT || '1000');
 var app = express();
-var server = http.createServer(app);
-server.listen(port);
 
-io = require('socket.io')(server);
+var getRouter = require('./src/routes/getRoutes'); 
 
-///ROUTES
-var routes = require('./routes/index')(io);
-var users = require('./routes/users');
+
+var port = process.env.PORT || 4000;
+
+app.use(express.static('./public'));
+app.use(express.static('./src'));
+
+app.set('views', './src/views');      
+app.set('view engine', 'ejs');
+
+
+app.use('/get', getRouter.getget());
+
+app.get('/', function (req, res) {
+    res.render('index', {
+        title: 'Population Chart'
+    });
+});
+
+app.listen(port, function () {
+    console.log('running server on port ' + port) 
+});
