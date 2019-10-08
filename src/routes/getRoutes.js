@@ -13,8 +13,6 @@ var connection = mysql.createConnection({
     port: 3307
 });
 
-
-
 var getget = function(){
     
     getRouter.route('/')    
@@ -28,15 +26,11 @@ var getget = function(){
                     err: err.code
                 });
             }
-            var dataset = new Array(10);
-            dataset = Object.values(rows[0])   
-            res.send(dataset);
-            
+            res.send(rows[0]);
+ 
         }); 
     });
-    
     return getRouter;
-        
 };
 
 module.exports = {
