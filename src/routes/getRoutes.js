@@ -28,7 +28,10 @@ var getget = function(){
                     err: err.code
                 });
             }
-            res.send(rows);
+            var dataset = new Array(10);
+            dataset = Object.values(rows[0])   
+            res.send(dataset);
+            
         }); 
     });
     

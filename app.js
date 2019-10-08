@@ -8,7 +8,7 @@ var getRouter = require('./src/routes/getRoutes');
 
 var port = process.env.PORT || 4000;
 
-app.use(express.static('./public'));
+
 app.use(express.static('./src'));
 
 app.set('views', './src/views');      
